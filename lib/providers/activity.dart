@@ -7,9 +7,9 @@ class Activity with ChangeNotifier {
   List<ActivityDetails> _details = [];
   String _activityUrl = "https://kisanhub.mockable.io/flutter-test/activities";
 
-  Future<void> activity(String token) async {
+  void activity(String token) async {
     print(token);
-    return await http.get(_activityUrl, headers: {
+    await http.get(_activityUrl, headers: {
       'Authorization': token,
     }).then(
       (response) {
@@ -25,9 +25,10 @@ class Activity with ChangeNotifier {
           );
           _details.add(newActivity);
         }
-        notifyListeners();
+       
       },
     );
+     notifyListeners();
   }
 
   List<ActivityDetails> get listItem {
