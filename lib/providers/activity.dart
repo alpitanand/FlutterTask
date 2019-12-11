@@ -33,4 +33,8 @@ class Activity with ChangeNotifier {
   List<ActivityDetails> get listItem {
     return [..._details];
   }
+
+  void clearData(){
+    _details=[];
+  }
 }

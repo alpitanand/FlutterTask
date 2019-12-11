@@ -40,7 +40,6 @@ class Login with ChangeNotifier {
 
   void isLoggingIn() {
     _isLoggingIn = true;
-
     notifyListeners();
   }
 
@@ -54,5 +53,11 @@ class Login with ChangeNotifier {
 
   String getAuthToken() {
     return _authToken;
+  }
+
+  void logOut() async {
+    _isLogged = false;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', null);
   }
 }

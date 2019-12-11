@@ -20,7 +20,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
     if (_isInit) {
       final activityDetails = Provider.of<Activity>(context);
       final loginDetails = Provider.of<Login>(context);
-      activityDetails.activity(loginDetails.getAuthToken());
+       activityDetails.activity(loginDetails.getAuthToken());
       _isInit = false;
       super.didChangeDependencies();
     }
